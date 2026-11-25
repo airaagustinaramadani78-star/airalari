@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FocusGuard - Pengelola Waktu Layar</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Google Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <h1>Focus<span>Guard</span></h1>
+                <p>Kendalikan Waktu Layarmu</p>
+            </div>
+            <button id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
+        </header>
+
+        <!-- Dashboard Kuota -->
+        <section class="card dashboard-card">
+            <h2>Dashboard Hari Ini</h2>
+            <div class="quota-info">
+                <span id="time-spent">0 jam 0 menit</span> / <span id="quota-limit">4 jam</span>
+            </div>
+            <div class="progress-bar-container">
+                <div id="progress-bar" class="progress-bar"></div>
+            </div>
+            <p id="status-message" class="safe">Waktu layar Anda masih aman hari ini!</p>
+            
+            <div class="settings-box">
+                <label for="input-quota">Ubah Batas Harian (Jam):</label>
+                <div class="input-group">
+                    <input type="number" id="input-quota" value="4" min="1" max="12">
+                    <button id="btn-save-quota">Simpan</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timer Fokus (Pomodoro) -->
+        <section class="card timer-card">
+            <h2>Mode Fokus (Pomodoro)</h2>
+            <div class="timer-display" id="timer-display">25:00</div>
+            <div class="timer-buttons">
+                <button id="btn-start" class="btn-primary">Mulai</button>
+                <button id="btn-pause" class="btn-secondary" disabled>Jeda</button>
+                <button id="btn-reset" class="btn-secondary">Reset</button>
+            </div>
+        </section>
+
+        <!-- Pencatat Waktu Aplikasi -->
+        <section class="card tracker-card">
+            <h2>Aira gaul</h2>
+            <form id="app-form">
+                <input type="text" id="app-name" placeholder="Nama Aplikasi/Game (cth: TikTok)" required>
+                <input type="number" id="app-duration" placeholder="Durasi (menit)" min="1" required>
+                <button type="submit" class="btn-primary full-width">Tambah Catatan</button>
+            </form>
+            <div class="list-container">
+                <h3>Riwayat Penggunaan Hari Ini</h3>
+                <ul id="app-list">
+                    <!-- Daftar aplikasi akan muncul di sini -->
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
